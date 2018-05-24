@@ -5,8 +5,13 @@
 </template>
 
 <script>
+import * as api from "../../../api";
+
 export default {
-  name: "HomePage"
+  name: "HomePage",
+  created() {
+    api.getData();
+  }
 };
 </script>
 
