@@ -1,16 +1,32 @@
 <template>
   <div id="homepage">
-    HELLO WORLD
+    {{pageData}}
   </div>
 </template>
 
 <script>
 import * as api from "../../../api";
 
+const initialState = () => {
+  return {
+    pageData: {}
+  };
+};
+
 export default {
   name: "HomePage",
+  data() {
+    return initialState();
+  },
+  methods: {
+    loadData(data) {
+      this.$data.pageData = data;
+    }
+  },
   created() {
-    api.getData();
+    let value;
+    api.getData(value);
+    this.loadData(value);
   }
 };
 </script>
